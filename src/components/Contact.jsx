@@ -28,14 +28,28 @@ export default function Contact({ content }) {
           </div>
         </div>
 
-        <form className="glass-card grid gap-4 p-7" onSubmit={(event) => event.preventDefault()}>
+        <form className="glass-card grid gap-4 p-7" onSubmit={(event) => event.preventDefault()} noValidate>
           <label className="field-label">
             {content.nameLabel}
-            <input className="field-input" type="text" name="name" placeholder={content.namePlaceholder} />
+            <input
+              className="field-input"
+              type="text"
+              name="name"
+              placeholder={content.namePlaceholder}
+              autoComplete="name"
+              required
+            />
           </label>
           <label className="field-label">
             {content.emailLabel}
-            <input className="field-input" type="email" name="email" placeholder={content.emailPlaceholder} />
+            <input
+              className="field-input"
+              type="email"
+              name="email"
+              placeholder={content.emailPlaceholder}
+              autoComplete="email"
+              required
+            />
           </label>
           <label className="field-label">
             {content.messageLabel}
@@ -43,11 +57,16 @@ export default function Contact({ content }) {
               className="field-input min-h-32 resize-y"
               name="message"
               placeholder={content.messagePlaceholder}
+              minLength={10}
+              required
             />
           </label>
-          <button type="submit" className="primary-button justify-center">
-            {content.submit} <Send size={18} />
-          </button>
+          <div className="space-y-3">
+            <button type="submit" className="primary-button w-full justify-center">
+              {content.submit} <Send size={18} />
+            </button>
+            <p className="form-note">{content.formNote}</p>
+          </div>
         </form>
       </div>
     </section>

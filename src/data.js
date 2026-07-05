@@ -101,8 +101,8 @@ export const languages = {
       title: "Dự án học tập gắn với chức năng quản lý thực tế.",
       body:
         "Các dự án tập trung vào CRUD, phân quyền, thiết kế database, xử lý dữ liệu và xây dựng luồng chức năng rõ ràng.",
-      demoButton: "Xem demo",
-      codeButton: "Mã nguồn",
+      demoButton: "Trao đổi",
+      codeButton: "GitHub",
       items: [
         {
           title: "Web Quản Lý Tin Tức",
@@ -177,6 +177,7 @@ export const languages = {
       emailPlaceholder: "you@example.com",
       messagePlaceholder: "Bạn muốn trao đổi về điều gì?",
       submit: "Gửi tin nhắn",
+      formNote: "Form minh họa; email, điện thoại và GitHub là cách liên hệ nhanh nhất.",
       email: "toilaboi400@gmail.com",
       phone: "090 669 0582",
       github: "https://github.com/ngocthien2100",
@@ -276,8 +277,8 @@ export const languages = {
       title: "Academic projects connected to practical management workflows.",
       body:
         "These projects focus on CRUD, authorization, database design, data handling, and clear functional flows.",
-      demoButton: "View Demo",
-      codeButton: "Source Code",
+      demoButton: "Discuss",
+      codeButton: "GitHub",
       items: [
         {
           title: "News Management Website",
@@ -352,6 +353,7 @@ export const languages = {
       emailPlaceholder: "you@example.com",
       messagePlaceholder: "Tell me what you would like to discuss...",
       submit: "Send Message",
+      formNote: "This form is a demo; email, phone, and GitHub are the fastest ways to reach me.",
       email: "toilaboi400@gmail.com",
       phone: "090 669 0582",
       github: "https://github.com/ngocthien2100",

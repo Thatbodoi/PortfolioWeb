@@ -59,6 +59,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-[var(--bg)] text-[var(--text)] transition-colors duration-500">
+      <a className="skip-link" href="#content">
+        Bỏ qua đến nội dung chính
+      </a>
       <div className="ambient ambient-one" aria-hidden="true" />
       <div className="ambient ambient-two" aria-hidden="true" />
       <div className="grid-overlay" aria-hidden="true" />
@@ -69,11 +72,11 @@ export default function App() {
         onToggleLanguage={toggleLanguage}
         onToggleTheme={toggleTheme}
       />
-      <main>
+      <main id="content">
         <Hero content={content.hero} />
         <About content={content.about} />
         <Skills content={content.skills} />
-        <Projects content={content.projects} />
+        <Projects content={content.projects} contactGithub={content.contact.github} />
         <Education content={content.education} />
         <Contact content={content.contact} />
       </main>

@@ -25,6 +25,19 @@
   --input: rgba(255, 255, 255, 0.68);
   --panel: rgba(248, 251, 255, 0.74);
   --panel-dark: rgba(17, 29, 48, 0.88);
+  --focus-ring: rgba(11, 121, 168, 0.55);
+  --grid-line: rgba(11, 121, 168, 0.11);
+  --grid-line-alt: rgba(11, 121, 168, 0.1);
+  --hero-title: rgba(7, 17, 31, 0.76);
+  --hero-avatar-border: rgba(11, 121, 168, 0.18);
+  --hero-orbit-border: rgba(233, 81, 61, 0.28);
+  --hero-orbit-dash: rgba(11, 121, 168, 0.32);
+  --hero-orbit-dot: rgba(233, 81, 61, 0.9);
+  --button-shadow: rgba(11, 121, 168, 0.26);
+  --hover-shadow: rgba(11, 121, 168, 0.22);
+  --ok-console: #1f8f50;
+  --placeholder: rgba(83, 97, 116, 0.72);
+  --hero-panel-bg: rgba(248, 251, 255, 0.74);
 }
 
 .dark {
@@ -48,6 +61,19 @@
   --input: rgba(15, 18, 26, 0.72);
   --panel: rgba(13, 15, 21, 0.72);
   --panel-dark: rgba(9, 11, 16, 0.86);
+  --focus-ring: rgba(101, 213, 255, 0.55);
+  --grid-line: rgba(101, 213, 255, 0.11);
+  --grid-line-alt: rgba(101, 213, 255, 0.1);
+  --hero-title: rgba(245, 249, 255, 0.76);
+  --hero-avatar-border: rgba(101, 213, 255, 0.18);
+  --hero-orbit-border: rgba(255, 97, 72, 0.28);
+  --hero-orbit-dash: rgba(101, 213, 255, 0.32);
+  --hero-orbit-dot: rgba(255, 97, 72, 0.95);
+  --button-shadow: rgba(101, 213, 255, 0.26);
+  --hover-shadow: rgba(101, 213, 255, 0.22);
+  --ok-console: #7df2a4;
+  --placeholder: rgba(154, 167, 184, 0.72);
+  --hero-panel-bg: rgba(13, 15, 21, 0.72);
 }
 
 html {
@@ -69,6 +95,26 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--nav-bg);
+  padding: 0.9rem 1.1rem;
+  color: var(--heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 h1,
@@ -94,13 +140,14 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
 .section-padding {
   position: relative;
   padding: 7rem 1rem;
+  scroll-margin-top: 7.5rem;
 }
 
 .grid-overlay {
@@ -109,10 +156,9 @@ textarea:focus-visible {
   inset: 0;
   z-index: 0;
   background-image:
-    linear-gradient(color-mix(in srgb, var(--accent) 11%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--accent) 10%, transparent) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-alt) 1px, transparent 1px);
   background-size: 58px 58px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 82%);
   opacity: 0.22;
 }
 
@@ -195,12 +241,12 @@ textarea:focus-visible {
 
 .icon-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 0 28px var(--hover-shadow);
 }
 
 .language-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 0 28px var(--hover-shadow);
 }
 
 .glass-card {
@@ -208,6 +254,7 @@ textarea:focus-visible {
   border-radius: 1.15rem;
   background: var(--glass);
   box-shadow: 0 18px 56px rgba(2, 7, 18, 0.18);
+  -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
 }
 
@@ -252,11 +299,11 @@ textarea:focus-visible {
 }
 
 .primary-button {
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border: 1px solid rgba(25, 79, 137, 0.28);
   background: linear-gradient(135deg, var(--hot), var(--accent-strong));
   color: white;
   padding: 0.95rem 1.25rem;
-  box-shadow: 0 16px 38px color-mix(in srgb, var(--accent) 26%, transparent);
+  box-shadow: 0 16px 38px var(--button-shadow);
 }
 
 .secondary-button,
@@ -279,7 +326,7 @@ textarea:focus-visible {
 .secondary-button:hover,
 .project-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 32px color-mix(in srgb, var(--accent) 22%, transparent);
+  box-shadow: 0 0 32px var(--hover-shadow);
 }
 
 .hero-stage {
@@ -318,7 +365,6 @@ textarea:focus-visible {
     transparent 8px,
     rgba(255, 255, 255, 0.035) 9px
   );
-  mask-image: linear-gradient(to bottom, transparent, black 12%, black 82%, transparent);
 }
 
 .hero-availability {
@@ -341,6 +387,7 @@ textarea:focus-visible {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   box-shadow: 0 12px 45px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 
@@ -391,7 +438,7 @@ textarea:focus-visible {
 
 .hero-title-wrap h1 {
   margin-top: 0.35rem;
-  color: color-mix(in srgb, var(--heading) 76%, transparent);
+  color: var(--hero-title);
   font-family: "Space Grotesk", "Be Vietnam Pro", sans-serif;
   font-size: clamp(4.6rem, 13vw, 11.5rem);
   font-weight: 700;
@@ -413,11 +460,10 @@ textarea:focus-visible {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  border: 1px solid var(--hero-avatar-border);
   box-shadow:
     0 40px 120px rgba(0, 0, 0, 0.42),
-    0 0 120px color-mix(in srgb, var(--hot) 18%, transparent);
-  mask-image: radial-gradient(circle, black 52%, rgba(0, 0, 0, 0.86) 65%, transparent 76%);
+    0 0 120px rgba(233, 81, 61, 0.18);
 }
 
 .hero-orbit {
@@ -425,7 +471,7 @@ textarea:focus-visible {
   inset: 1.5rem;
   z-index: -1;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--hot) 28%, transparent);
+  border: 1px solid var(--hero-orbit-border);
   opacity: 0.7;
   animation: slowSpin 22s linear infinite;
 }
@@ -435,7 +481,7 @@ textarea:focus-visible {
   position: absolute;
   inset: 12%;
   border-radius: inherit;
-  border: 1px dashed color-mix(in srgb, var(--accent) 32%, transparent);
+  border: 1px dashed var(--hero-orbit-dash);
 }
 
 .hero-orbit::before {
@@ -446,8 +492,8 @@ textarea:focus-visible {
   height: 0.9rem;
   width: 0.9rem;
   border-radius: 999px;
-  background: var(--hot);
-  box-shadow: 0 0 28px var(--hot);
+  background: var(--hero-orbit-dot);
+  box-shadow: 0 0 28px var(--hero-orbit-dot);
 }
 
 .hero-chip {
@@ -497,6 +543,7 @@ textarea:focus-visible {
   padding: 1rem;
   color: #dce8f5;
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+  -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
 
@@ -578,7 +625,7 @@ textarea:focus-visible {
 }
 
 .console-lines p {
-  color: color-mix(in srgb, var(--ok) 78%, #dce8f5);
+  color: var(--ok-console);
   text-transform: none;
 }
 
@@ -595,11 +642,12 @@ textarea:focus-visible {
   translate: -50% 0;
   border: 1px solid var(--glass-border);
   border-radius: 1.5rem;
-  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  background: var(--hero-panel-bg);
   padding: 1rem;
   color: var(--muted-strong);
   text-align: center;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.26);
+  -webkit-backdrop-filter: blur(26px);
   backdrop-filter: blur(26px);
 }
 
@@ -658,9 +706,10 @@ textarea:focus-visible {
   gap: 0.7rem;
   border: 1px solid var(--glass-border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--panel) 84%, transparent);
+  background: rgba(248, 251, 255, 0.84);
   padding: 0.72rem;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  -webkit-backdrop-filter: blur(26px);
   backdrop-filter: blur(26px);
 }
 
@@ -678,7 +727,7 @@ textarea:focus-visible {
 .hero-dock a:hover {
   transform: translateY(-4px);
   color: var(--heading);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--hot) 28%, transparent);
+  box-shadow: 0 0 28px var(--project-glow);
 }
 
 .hero-focus-card {
@@ -719,7 +768,7 @@ textarea:focus-visible {
 
 .skill-pill:hover {
   transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--glass-border));
+  border-color: rgba(11, 121, 168, 0.45);
 }
 
 .mini-pill {
@@ -735,12 +784,13 @@ textarea:focus-visible {
   background: var(--glass);
   padding: 1.1rem;
   box-shadow: 0 20px 70px rgba(2, 12, 27, 0.16);
+  -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: color-mix(in srgb, var(--accent) 42%, var(--glass-border));
+  border-color: rgba(11, 121, 168, 0.42);
   box-shadow: 0 24px 85px rgba(2, 12, 27, 0.22);
 }
 
@@ -758,6 +808,7 @@ textarea:focus-visible {
   position: absolute;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
@@ -802,7 +853,7 @@ textarea:focus-visible {
   border-radius: 999px;
   border: 3px solid var(--bg);
   background: var(--accent);
-  box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 62%, transparent);
+  box-shadow: 0 0 26px rgba(101, 213, 255, 0.62);
 }
 
 .contact-link {
@@ -819,7 +870,7 @@ textarea:focus-visible {
 
 .contact-link:hover {
   transform: translateX(4px);
-  border-color: color-mix(in srgb, var(--accent) 42%, var(--glass-border));
+  border-color: rgba(11, 121, 168, 0.42);
 }
 
 .field-label {
@@ -837,11 +888,19 @@ textarea:focus-visible {
   padding: 0.95rem 1rem;
   color: var(--heading);
   outline: none;
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
 .field-input::placeholder {
-  color: color-mix(in srgb, var(--muted) 72%, transparent);
+  color: var(--placeholder);
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  text-align: center;
 }
 
 @media (min-width: 640px) {

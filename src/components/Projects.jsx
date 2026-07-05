@@ -1,6 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 
-export default function Projects({ content }) {
+export default function Projects({ content, contactGithub }) {
   return (
     <section id="projects" className="section-padding">
       <div className="mx-auto max-w-6xl">
@@ -38,7 +38,12 @@ export default function Projects({ content }) {
                 <a href="#contact" className="project-button">
                   <ExternalLink size={16} /> {content.demoButton}
                 </a>
-                <a href="#contact" className="project-button">
+                <a
+                  href={contactGithub}
+                  className="project-button"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
                   <Github size={16} /> {content.codeButton}
                 </a>
               </div>

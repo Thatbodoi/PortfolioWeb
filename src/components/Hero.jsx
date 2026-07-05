@@ -27,6 +27,11 @@ export default function Hero({ content }) {
               src="/hero-tech-visual.png"
               alt="Futuristic developer avatar visual for Nguyen Ngoc Thien portfolio"
               className="hero-avatar-image"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              width="960"
+              height="960"
             />
             <div className="hero-chip hero-chip-left">{content.techBadge}</div>
             <div className="hero-chip hero-chip-right">{content.statusBadge}</div>
@@ -100,7 +105,12 @@ export default function Hero({ content }) {
               [MessageCircle, "#contact", "Contact"],
               [Github, "https://github.com/ngocthien2100", "GitHub"],
             ].map(([Icon, href, label]) => (
-              <a key={label} href={href} aria-label={label}>
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                {...(href.startsWith("http") ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+              >
                 <Icon size={20} />
               </a>
             ))}
