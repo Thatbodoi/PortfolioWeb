@@ -112,6 +112,7 @@ export const languages = {
           title: "Web Quản Lý Tin Tức",
           image: "/visual-ui.svg",
           imageAlt: "Minh họa giao diện ứng dụng quản lý tin tức",
+          codeUrl: "https://github.com/ngocthien2100/WebQuanLyTinTuc",
           description:
             "Website đọc và quản lý tin tức với trang chủ, chi tiết bài viết, lọc danh mục, tin mới và tin xem nhiều.",
           stack: [
@@ -130,6 +131,7 @@ export const languages = {
           title: "Gym Management System",
           image: "/visual-data.svg",
           imageAlt: "Minh họa hệ thống quản lý dữ liệu và báo cáo",
+          codeUrl: "https://github.com/ngocthien2100/GymManagement",
           description:
             "Ứng dụng desktop quản lý hội viên, gói tập, huấn luyện viên, nhân viên và doanh thu.",
           stack: [
@@ -148,6 +150,7 @@ export const languages = {
           title: "Portfolio Glassmorphism",
           image: "/visual-code.svg",
           imageAlt: "Minh họa không gian làm việc lập trình",
+          codeUrl: "https://github.com/Thatbodoi/PortfolioWeb",
           description:
             "Website portfolio cá nhân song ngữ, có giao diện Glassmorphism, Dark/Light Mode và bố cục responsive.",
           stack: [
@@ -359,6 +362,7 @@ export const languages = {
           title: "News Management Website",
           image: "/visual-ui.svg",
           imageAlt: "UI illustration for news management website",
+          codeUrl: "https://github.com/ngocthien2100/WebQuanLyTinTuc",
           description:
             "A news reading and management website with homepage, article details, category filtering, latest posts, and most-viewed posts.",
           stack: [
@@ -377,6 +381,7 @@ export const languages = {
           title: "Gym Management System",
           image: "/visual-data.svg",
           imageAlt: "Database and analytics illustration",
+          codeUrl: "https://github.com/ngocthien2100/GymManagement",
           description:
             "A desktop application for managing members, membership packages, trainers, employees, and revenue.",
           stack: [
@@ -395,6 +400,7 @@ export const languages = {
           title: "Glassmorphism Portfolio",
           image: "/visual-code.svg",
           imageAlt: "Code workspace illustration",
+          codeUrl: "https://github.com/Thatbodoi/PortfolioWeb",
           description:
             "A bilingual personal portfolio with Glassmorphism UI, Dark/Light Mode, and responsive layout.",
           stack: [
