@@ -1,6 +1,66 @@
+import { useState } from "react";
 import { Github, Mail, MapPin, Phone, Send } from "lucide-react";
 
+const contactFormEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT?.trim();
+
 export default function Contact({ content }) {
+  const [status, setStatus] = useState("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(form);
+    const payload = {
+      name: formData.get("name")?.toString().trim(),
+      email: formData.get("email")?.toString().trim(),
+      message: formData.get("message")?.toString().trim(),
+      source: "Portfolio contact form",
+    };
+
+    setStatus("sending");
+    setStatusMessage(content.sendingMessage);
+
+    if (!contactFormEndpoint) {
+      const subject = encodeURIComponent(`Portfolio contact from ${payload.name}`);
+      const body = encodeURIComponent(
+        `Name: ${payload.name}\nEmail: ${payload.email}\n\nMessage:\n${payload.message}`,
+      );
+      window.location.href = `mailto:${content.email}?subject=${subject}&body=${body}`;
+      setStatus("idle");
+      setStatusMessage(content.mailFallbackMessage);
+      return;
+    }
+
+    try {
+      const response = await fetch(contactFormEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Contact request failed");
+      }
+
+      form.reset();
+      setStatus("success");
+      setStatusMessage(content.successMessage);
+    } catch {
+      setStatus("error");
+      setStatusMessage(content.errorMessage);
+    }
+  };
+
   return (
     <section id="contact" className="section-padding pb-16">
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -28,7 +88,7 @@ export default function Contact({ content }) {
           </div>
         </div>
 
-        <form className="glass-card grid gap-4 p-7" onSubmit={(event) => event.preventDefault()} noValidate>
+        <form className="glass-card grid gap-4 p-7" onSubmit={handleSubmit} noValidate>
           <label className="field-label">
             {content.nameLabel}
             <input
@@ -62,10 +122,10 @@ export default function Contact({ content }) {
             />
           </label>
           <div className="space-y-3">
-            <button type="submit" className="primary-button w-full justify-center">
-              {content.submit} <Send size={18} />
+            <button type="submit" className="primary-button w-full justify-center" disabled={status === "sending"}>
+              {status === "sending" ? content.sendingButton : content.submit} <Send size={18} />
             </button>
-            <p className="form-note">{content.formNote}</p>
+            <p className="form-note" aria-live="polite">{statusMessage || content.formNote}</p>
           </div>
         </form>
       </div>
