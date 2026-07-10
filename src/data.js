@@ -1,3 +1,5 @@
+const miniStyleDemoUrl = import.meta.env.VITE_MINISTYLE_DEMO_URL?.trim();
+
 export const languages = {
   vi: {
     code: "VI",
@@ -158,6 +160,27 @@ export const languages = {
             "Chuyển đổi Tiếng Việt/Tiếng Anh.",
             "Lưu theme và ngôn ngữ đã chọn.",
             "Thiết kế hiện đại, phù hợp hồ sơ thực tập IT.",
+          ],
+        },
+        {
+          title: "MiniStyle - Website bán quần áo",
+          image: "/visual-ui.svg",
+          imageAlt: "Minh họa giao diện website bán quần áo MiniStyle",
+          demoUrl: miniStyleDemoUrl,
+          demoLabel: "Xem demo",
+          codeUrl: "https://github.com/ngocthien2100/WebsiteMiniShopQuanAo",
+          description:
+            "Website bán quần áo mini với giao diện cửa hàng, danh sách sản phẩm, giỏ hàng, đặt hàng và phân quyền người dùng.",
+          stack: [
+            { name: "React", type: "web" },
+            { name: "TypeScript", type: "web" },
+            { name: "Vite", type: "tool" },
+            { name: "Supabase", type: "db" },
+          ],
+          highlights: [
+            "Đăng nhập, đăng ký, xác thực email, quên mật khẩu và phân quyền Admin/Nhân viên/Khách hàng.",
+            "Quản lý sản phẩm, đơn hàng, giỏ hàng và dữ liệu bằng Supabase hoặc localStorage fallback.",
+            "Tích hợp chatbot n8n, Messenger, email template và cấu hình deploy Vercel.",
           ],
         },
       ],
@@ -384,6 +407,27 @@ export const languages = {
             "Vietnamese/English language switching.",
             "Saved theme and language preference.",
             "Modern design for an IT internship profile.",
+          ],
+        },
+        {
+          title: "MiniStyle - Clothing Shop Website",
+          image: "/visual-ui.svg",
+          imageAlt: "UI illustration for the MiniStyle clothing shop website",
+          demoUrl: miniStyleDemoUrl,
+          demoLabel: "Live Demo",
+          codeUrl: "https://github.com/ngocthien2100/WebsiteMiniShopQuanAo",
+          description:
+            "A mini clothing e-commerce website with storefront UI, product browsing, cart, checkout, and user roles.",
+          stack: [
+            { name: "React", type: "web" },
+            { name: "TypeScript", type: "web" },
+            { name: "Vite", type: "tool" },
+            { name: "Supabase", type: "db" },
+          ],
+          highlights: [
+            "Login, registration, email verification, password recovery, and Admin/Staff/Customer authorization.",
+            "Product, order, cart, and data management with Supabase plus localStorage fallback.",
+            "Integrated n8n chatbot, Messenger link, email templates, and Vercel deployment setup.",
           ],
         },
       ],
