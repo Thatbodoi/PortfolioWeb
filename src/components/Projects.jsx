@@ -51,7 +51,7 @@ export default function Projects({ content, contactGithub }) {
                   })}
                 </div>
 
-                <div className="mt-7 flex gap-3">
+                <div className="project-actions">
                   <a
                     href={demoUrl}
                     className="project-button"
